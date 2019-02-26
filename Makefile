@@ -69,7 +69,7 @@ build: checks
 	@GOFLAGS="" CGO_ENABLED=0 go build --ldflags="-s -w" -o $(PWD)/dockerscripts/healthcheck $(PWD)/dockerscripts/healthcheck.go
 
 docker: build
-	@docker build -t $(TAG) . -f Dockerfile.dev
+	@docker build -t $(TAG) . -f Dockerfile.release
 
 pkg-add:
 	@echo "Adding new package $(PKG)"
