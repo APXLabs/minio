@@ -31,6 +31,12 @@ RUN \
      chmod +x /usr/bin/healthcheck && \
      chmod +x /usr/bin/check-user
 
+USER 0
+
+RUN \
+     chgrp -R 0 /root && \
+     chmod -R g=u /root
+
 EXPOSE 9000
 
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
